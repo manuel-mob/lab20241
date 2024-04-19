@@ -1,4 +1,3 @@
-import 'package:ejemplo_lab/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
