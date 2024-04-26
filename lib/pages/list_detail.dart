@@ -3,9 +3,10 @@ import 'package:flutter/material.dart';
 class ListDetail extends StatelessWidget {
   const ListDetail({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    List<String> items = ['Item1','Nombre2','Texto3'];
+
     return Scaffold(
       backgroundColor: Colors.amber[50],
       appBar: AppBar(
@@ -17,11 +18,9 @@ class ListDetail extends StatelessWidget {
           ListView(
 
             padding: const EdgeInsets.all(20.0),
-            children: const <Widget>[
-              Text("Item 1"),
-              Text("Item 2"),
-              Text("Item 3"),
-              Text("Item 4"),
+            children: <Widget>[
+              for (var pair in items)
+              Text(pair)
             ],
           ),
       persistentFooterButtons: [
