@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter/widgets.dart';
+
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
@@ -9,32 +10,18 @@ class MyHomePage extends StatefulWidget {
 }
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
-  String gameIcon = 'assets/images/3151590_galaga_game_retro_video_icon.svg';
-  String emojiIcon = 'assets/images/2993606_emoji_emote_emoticon_emoticons_wink_icon.svg';
-  String defeatMessage = 'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500.';
-  String victoryMessage = 'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500.';
 
+  Color firstColor = Colors.orange;
+  Color secondColor = Colors.purple;
 
   void _decrementCounter() {
-    
     setState(() {
       _counter--;
     });
   }
-  void _incrementCounter() {
-    
+  void _incrementCounter() {    
     setState(() {
-      _counter++;
-      if (_counter == 10 ){
-        gameIcon = 'assets/images/3151548_over_sign_videogame_icon.svg';
-      }
-      else if (_counter == 15 ){
-        gameIcon = 'assets/images/2993606_emoji_emote_emoticon_emoticons_wink_icon.svg';
-      }
-      else {
-        gameIcon = 'assets/images/3151590_galaga_game_retro_video_icon.svg';
-      }
-    
+
     });
   }
   void _resetCounter() {
@@ -54,7 +41,6 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: 
-        
       Center(
         widthFactor: 6,
         child: Padding(
@@ -76,27 +62,42 @@ class _MyHomePageState extends State<MyHomePage> {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Text('Lograste $_counter puntos',
+                                Text('Color name',
                                 style: Theme.of(context).textTheme.headlineLarge,
                                 ),
                                 SizedBox(
                                   width: 5,
                                 ),
-                                SvgPicture.asset(
-                                  gameIcon,
-                                  width: 80,
-                                  ),
                               ],
                             ),
-                            Text(defeatMessage),
+                            Container(
+                              color: Colors.amber,
+                              height: 50,
+                              width: 50,
+                            ),
                             Center(    
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  ElevatedButton(onPressed: _incrementCounter, child: const Text('More')),
-                                  const SizedBox(width: 25,),
-                                  ElevatedButton(onPressed: _resetCounter, child: SvgPicture.asset(emojiIcon)),
-                                  ElevatedButton(onPressed: _decrementCounter, child: const Text('Less')),
+                                  ElevatedButton(onPressed: _incrementCounter, child: Column(
+                                    children: [
+                                      Container(
+                                        color: firstColor,
+                                        width: 100,
+                                        height: 30,),
+                                      Text("Color Name")
+                                    ]
+                                  )),
+                                  SizedBox(width: 20),
+                                  ElevatedButton(onPressed: _resetCounter, child: Column(
+                                    children: [
+                                      Container(
+                                        color: secondColor,
+                                        width: 100,
+                                        height: 30,),
+                                      Text("Color Name")
+                                    ]
+                                  )),
                                 ],
                               ),
                             )
@@ -109,11 +110,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ),
       ),
-      // floatingActionButton: FloatingActionButton(
-      //   onPressed: _incrementCounter,
-      //   tooltip: 'Increment',
-      //   child: const Icon(Icons.fifteen_mp),
-      // ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
+
