@@ -1,20 +1,9 @@
+import 'dart:async';
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-
-void main() {
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Color Catcher',
-      home: GameScreen(),
-    );
-  }
-}
 
 class GameScreen extends StatefulWidget {
   @override
@@ -22,8 +11,26 @@ class GameScreen extends StatefulWidget {
 }
 
 class _GameScreenState extends State<GameScreen> {
-  Color currentColor = Colors.red; // Initial color
+  Color currentColor = Colors.blue; // Initial color
   int score = 0;
+  Timer? timer;
+
+  @override
+  void initState() {
+    super.initState();
+    //changeColor();
+    //tartTimer();
+  }
+
+  @override
+  void dispose() {
+    //timer?.cancel();
+    super.dispose();
+  }
+
+  void startTimer() {
+    timer = Timer.periodic(const Duration(seconds: 10), (_) => changeColor());
+  }
 
   void changeColor() {
     setState(() {
