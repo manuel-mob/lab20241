@@ -1,19 +1,19 @@
-# ejemplo_lab
+# Ejemplo de Laboratorios
 
-A new Flutter project.
+This is a Flutter project with branch for testing some aspects.
 
-## Getting Started
+## Referencias
 
-This project is a starting point for a Flutter application.
+This is some information included in the project:
 
-A few resources to get you started if this is your first Flutter project:
+- [Life cycle of statefull widget](https://medium.com/@hadiyaaamir222/lifecycle-of-a-stateful-widget-aece2d56c946)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
+For help getting started with Flutter development, view the [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
 
 #Laboratorio 6
 Crear pantallas y utilizar Navigation Push y Pop para trabajar y navegar entre ellas.
+
+#Laboratorio 7
+Inclusión de mensajes para conocer los estados de nuestro statefull widget.
