@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-
+import 'package:flutter_svg/svg.dart';
+import 'detail.dart';
+import 'list_detail.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
@@ -110,6 +111,16 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ),
       ),
+      persistentFooterButtons: [
+        ElevatedButton(onPressed:  () {
+                                      Navigator.push(context, MaterialPageRoute(builder: ((context) => ListDetail())));
+                                    }, child: Column(children: [Icon(Icons.list),Text("Lista")],)),
+        ElevatedButton(onPressed:  () {
+                                      Navigator.push(context, MaterialPageRoute(builder: ((context) => Detail())));
+                                    }, child: Column(children: [Icon(Icons.document_scanner),Text("Detalle")],)),
+        
+      ],
+      
     );
   }
 }
