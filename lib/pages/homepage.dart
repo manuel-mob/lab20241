@@ -1,5 +1,6 @@
+import 'package:ejemplo_lab/pages/gestures.dart';
+import 'package:ejemplo_lab/pages/sensors.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'detail.dart';
 import 'list_detail.dart';
 
@@ -14,6 +15,8 @@ class MyHomePage extends StatefulWidget {
 }
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  int _selectedIndex = 0;
+
 
   _MyHomePageState() {
     print('constructor, mounted: $mounted');
@@ -49,9 +52,6 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-
- 
-
   @override
   Widget build(BuildContext context) {
     print("build() called.");
@@ -61,6 +61,61 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor:  Colors.blue[900],
         foregroundColor: Colors.blue[50],
         title: Text(widget.title),
+      ),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            const DrawerHeader(
+              decoration: BoxDecoration(
+                color: Colors.blue,
+              ),
+              child: Text('Drawer Header'),
+            ),
+            ListTile(
+              title: const Text('Ejemplo de Card'),
+              selected: _selectedIndex == 0,
+              onTap: () {
+                // Update the state of the app
+                //_onItemTapped(0);
+                // Then close the drawer
+                
+              },
+            ),
+            ListTile(
+              title: const Text('Lista'),
+              selected: _selectedIndex == 1,
+              onTap: () {
+                Navigator.push(context, 
+                MaterialPageRoute(builder: (context) => ListDetail()));
+              },
+            ),
+            ListTile(
+              title: const Text('Detalle'),
+              selected: _selectedIndex == 2,
+              onTap: () {
+                Navigator.push(context, 
+                MaterialPageRoute(builder: (context) => Detail()));
+              },
+            ),
+            ListTile(
+              title: const Text('Sensores'),
+              selected: _selectedIndex == 3,
+              onTap: () {
+                Navigator.push(context, 
+                MaterialPageRoute(builder: (context) => SensorsScreen()));
+              },
+            ),
+            ListTile(
+              title: const Text('Gestos'),
+              selected: _selectedIndex == 4,
+              onTap: () {
+                Navigator.push(context, 
+                MaterialPageRoute(builder: (context) => GesturesScreen()));
+              },
+            ),
+          ],
+        )
       ),
       body: 
       Center(
@@ -114,19 +169,6 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ),
       ),
-      persistentFooterButtons: [
-        ElevatedButton(onPressed:  () {
-                                      Navigator.of(context).pushReplacement(
-                  MaterialPageRoute(builder: (context) => const ListDetail()),);
-
-                                      /*Navigator.push(context, MaterialPageRoute(builder: ((context) => ListDetail())));*/
-                                    }, child: Column(children: [Icon(Icons.list),Text("Lista")],)),
-        ElevatedButton(onPressed:  () {
-                                      Navigator.push(context, MaterialPageRoute(builder: ((context) => Detail())));
-                                    }, child: Column(children: [Icon(Icons.document_scanner),Text("Detalle")],)),
-        
-      ],
-      
     );
   }
 

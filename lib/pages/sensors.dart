@@ -1,27 +1,24 @@
 import 'package:flutter/material.dart';
 
-class ListDetail extends StatelessWidget {
-  const ListDetail({super.key});
+class SensorsScreen extends StatelessWidget {
+  const SensorsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    List<String> items = ['Item1','Nombre2','Texto3'];
 
     return Scaffold(
       backgroundColor: Colors.amber[50],
       appBar: AppBar(
         backgroundColor:  Colors.blue[900],
         foregroundColor: Colors.blue[50],
-        title: const Text("List"),
+        title: const Text("Sensors Screen"),
       ),
       body:
-          ListView(
-
-            padding: const EdgeInsets.all(20.0),
-            children: <Widget>[
-              for (var pair in items)
-              Text(pair)
-            ],
+          Center(
+            child: Column(children: [
+              SizedBox(height: 20,),
+              Text("Sensors Screen")
+            ],),
           ),
       persistentFooterButtons: [
         ElevatedButton(onPressed: (){
