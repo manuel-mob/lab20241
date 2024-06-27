@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../data/Player.dart';
 
 class ListDetail extends StatelessWidget {
   @override
