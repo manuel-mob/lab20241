@@ -1,10 +1,14 @@
+import 'package:ejemplo_lab/pages/detail.dart';
 import 'package:flutter/material.dart';
-
-
+import 'data/Player.dart';
 import 'pages/homepage.dart';
+import 'pages/detail.dart';
+import 'pages/list_detail.dart';
 
-void main() {
+Future<void> main() async {
+  
   runApp(const MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
 }
 
 class MyApp extends StatelessWidget {
@@ -21,6 +25,10 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       home: const MyHomePage(title: 'Ejemplo de Laboratorio'),
+      routes: {
+      '/detail': (context) => Detail(),
+      //'/list': (context) => ListDetail(),
+    },
     );
   }
 }

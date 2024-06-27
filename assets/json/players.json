@@ -1,0 +1,13 @@
+[
+    {
+      "id": 1,
+      "name": "Player 1",
+      "description": "This is the first player."
+    },
+    {
+      "id": 2,
+      "name": "Player 2",
+      "description": "This is the second player."
+    }
+  ]
+  

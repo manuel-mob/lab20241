@@ -1,8 +1,10 @@
+import 'package:ejemplo_lab/data/Player.dart';
 import 'package:ejemplo_lab/pages/gestures.dart';
 import 'package:ejemplo_lab/pages/sensors.dart';
 import 'package:flutter/material.dart';
 import 'detail.dart';
 import 'list_detail.dart';
+import 'list_players.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
@@ -16,6 +18,8 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
   int _selectedIndex = 0;
+  Future<List<Player>>? _playersFuture;
+  List<Player> _players = [];
 
 
   _MyHomePageState() {
@@ -26,6 +30,8 @@ class _MyHomePageState extends State<MyHomePage> {
   void initState() {
     super.initState();
     print("initState() called.");
+    _playersFuture = Player.loadPlayers();
+    _players = _buildPlayersList();
   }
   @override
   void didChangeDependencies() {
@@ -51,6 +57,10 @@ class _MyHomePageState extends State<MyHomePage> {
       _counter = 0;
     });
   }
+
+  
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -85,9 +95,18 @@ class _MyHomePageState extends State<MyHomePage> {
             ListTile(
               title: const Text('Lista'),
               selected: _selectedIndex == 1,
+
               onTap: () {
                 Navigator.push(context, 
                 MaterialPageRoute(builder: (context) => ListDetail()));
+              },
+            ),
+            ListTile(
+              title: const Text('Lista de Jugadores'),
+              selected: _selectedIndex == 7,
+              onTap: () {
+                Navigator.push(context, 
+                MaterialPageRoute(builder: (context) => ListPlayers(players: _players)));
               },
             ),
             ListTile(
@@ -109,6 +128,22 @@ class _MyHomePageState extends State<MyHomePage> {
             ListTile(
               title: const Text('Gestos'),
               selected: _selectedIndex == 4,
+              onTap: () {
+                Navigator.push(context, 
+                MaterialPageRoute(builder: (context) => GesturesScreen()));
+              },
+            ),
+            ListTile(
+              title: const Text('Persistencia'),
+              selected: _selectedIndex == 5,
+              onTap: () {
+                Navigator.push(context, 
+                MaterialPageRoute(builder: (context) => GesturesScreen()));
+              },
+            ),
+            ListTile(
+              title: const Text('Redes y http'),
+              selected: _selectedIndex == 6,
               onTap: () {
                 Navigator.push(context, 
                 MaterialPageRoute(builder: (context) => GesturesScreen()));
@@ -172,6 +207,19 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
+
+  List<Player> _buildPlayersList() {
+    // Handle potential loading state (replace with actual error handling)
+    if (_playersFuture == null) {
+      return []; // Or show an empty list message
+    }
+    _playersFuture!.then((result) {
+      for (var item in result) {
+        _players.add(item);
+      }
+    });
+    return _players;
+  }
   @override
   void didUpdateWidget(covariant MyHomePage oldWidget) {
     super.didUpdateWidget(oldWidget);
