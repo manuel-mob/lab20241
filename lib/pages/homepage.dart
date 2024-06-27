@@ -1,5 +1,7 @@
 import 'package:ejemplo_lab/data/Player.dart';
 import 'package:ejemplo_lab/pages/gestures.dart';
+import 'package:ejemplo_lab/pages/list_games.dart';
+import 'package:ejemplo_lab/pages/practice_future_example.dart';
 import 'package:ejemplo_lab/pages/sensors.dart';
 import 'package:flutter/material.dart';
 import 'detail.dart';
@@ -107,6 +109,22 @@ class _MyHomePageState extends State<MyHomePage> {
               onTap: () {
                 Navigator.push(context, 
                 MaterialPageRoute(builder: (context) => ListPlayers(players: _players)));
+              },
+            ),
+            ListTile(
+              title: const Text('Lista de Juegos'),
+              selected: _selectedIndex == 8,
+              onTap: () {
+                Navigator.push(context, 
+                MaterialPageRoute(builder: (context) => ListGameScreen()));
+              },
+            ),
+            ListTile(
+              title: const Text('Future - Ejemplo'),
+              selected: _selectedIndex == 9,
+              onTap: () {
+                Navigator.push(context, 
+                MaterialPageRoute(builder: (context) => PracticeFutureScreen()));
               },
             ),
             ListTile(
