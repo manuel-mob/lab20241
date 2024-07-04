@@ -97,7 +97,6 @@ class _MyHomePageState extends State<MyHomePage> {
             ListTile(
               title: const Text('Lista'),
               selected: _selectedIndex == 1,
-
               onTap: () {
                 Navigator.push(context, 
                 MaterialPageRoute(builder: (context) => ListDetail()));

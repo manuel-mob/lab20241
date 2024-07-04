@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 class ListDetail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -14,15 +13,7 @@ class ListDetail extends StatelessWidget {
         title: const Text("List"),
       ),
       body:
-    //   ListView.builder(
-    //   itemCount: routes.length,
-    //   itemBuilder: (context, index) {
-    //     final route = routes[index];
-    //     return Text('${route.name} - ${route.description}'); // Display route information
-    //   },
-    // ),
           ListView(
-
             padding: const EdgeInsets.all(20.0),
             children: <Widget>[
               for (var pair in items) 
