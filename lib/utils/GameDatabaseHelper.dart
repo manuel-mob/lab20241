@@ -8,7 +8,7 @@ class GameDatabaseHelper {
   static final GameDatabaseHelper instance = GameDatabaseHelper._privateConstructor();
 
   static const _databaseName = 'example_database.db';
-  static const _databaseVersion = 3;
+  static const _databaseVersion = 1;
 
   // Function to open the database (or create it if it doesn't exist)
   Future<Database> get database async {
@@ -25,7 +25,7 @@ class GameDatabaseHelper {
             name TEXT,
             gender TEXT,
             year INTEGER,
-            version INTEGER),
+            version INTEGER);
         ''');
       },
       onUpgrade: (db, oldVersion, newVersion) async  {
@@ -64,7 +64,7 @@ class GameDatabaseHelper {
           }
         }
       },  
-      version: 3,//This version is for determinate the OnCreate, onUpgrade or onDowngrade option. (new version)
+      version: 1,//This version is for determinate the OnCreate, onUpgrade or onDowngrade option. (new version)
     );
   }
 
