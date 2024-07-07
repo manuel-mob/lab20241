@@ -3,6 +3,7 @@ import 'package:ejemplo_lab/pages/gestures.dart';
 import 'package:ejemplo_lab/pages/list_games.dart';
 import 'package:ejemplo_lab/pages/practice_future_example.dart';
 import 'package:ejemplo_lab/pages/sensors.dart';
+import 'package:ejemplo_lab/pages/test_launcher.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'detail.dart';
@@ -182,6 +183,14 @@ class _MyHomePageState extends State<MyHomePage> {
               onTap: () {
                 Navigator.push(context, 
                 MaterialPageRoute(builder: (context) => GesturesScreen()));
+              },
+            ),
+             ListTile(
+              title: const Text('Lanzar otras apps'),
+              selected: _selectedIndex == 10,
+              onTap: () {
+                Navigator.push(context, 
+                MaterialPageRoute(builder: (context) => TestLauncher(title: 'Lanzar apps')));
               },
             ),
           ],
