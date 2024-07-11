@@ -3,6 +3,7 @@ import 'package:ejemplo_lab/pages/gestures.dart';
 import 'package:ejemplo_lab/pages/list_games.dart';
 import 'package:ejemplo_lab/pages/practice_future_example.dart';
 import 'package:ejemplo_lab/pages/sensors.dart';
+import 'package:ejemplo_lab/pages/test_fetch_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'detail.dart';
@@ -181,7 +182,7 @@ class _MyHomePageState extends State<MyHomePage> {
               selected: _selectedIndex == 6,
               onTap: () {
                 Navigator.push(context, 
-                MaterialPageRoute(builder: (context) => GesturesScreen()));
+                MaterialPageRoute(builder: (context) => TestFetchDataPage(title: 'Prueba de Fetch Data')));
               },
             ),
           ],
