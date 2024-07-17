@@ -22,23 +22,6 @@ class Holiday {
       nonNegotiable: json['irrenunciable'] as String,
       type: json['tipo'] as String,
     );
-    /*return switch (json) {
-      {
-        'nombre': String name,
-        'comentarios': String comment,
-        'fecha': String date,
-        'irrenunciable': int nonNegotiable,
-        'tipo': String type,
-      } =>
-        Holiday(
-          name: name,
-          comment: comment,
-          date: date,
-          nonNegotiable: nonNegotiable,
-          type: type
-        ),
-      _ => throw const FormatException('Failed to load Holiday.'),
-    };*/
   }
 
 }

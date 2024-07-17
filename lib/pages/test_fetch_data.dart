@@ -220,16 +220,6 @@ class _TestFetchDataPagePageState extends State<TestFetchDataPage> {
                 );
             }
           },
-           /*ListView.builder(
-            itemCount: _holidayList.length,
-            itemBuilder: (context, index) {
-              final holiday = _holidayList[index];
-              return ListTile(
-                title: Text(holiday.name),
-                subtitle: Text('Date: ${holiday.date}'),
-              );
-            }
-          ),*/
         ),
     ),
     );
